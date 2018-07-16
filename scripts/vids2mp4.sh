@@ -9,8 +9,5 @@ do
   ffmpeg -i "$i" -vcodec mpeg4 -b:v 15M -acodec libmp3lame -b:a 192k "${i%.*}.MP4"
 done
 
-if [[ ! -e $to_delete]]
-then
-  mkdir to_delete
-fi
+[[ -d to_delete ]] || mkdir to_delete
 mv *.MP4 to_delete
