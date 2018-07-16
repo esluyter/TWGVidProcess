@@ -9,8 +9,5 @@ do
   ffmpeg -i "$i" -vcodec libx264 -s 1920x1080 -acodec copy "${i%.*}.MOV"
 done
 
-if [[ ! -e $to_delete]]
-then
-  mkdir to_delete
-fi
+[[ -d to_delete ]] || mkdir to_delete
 mv *.MXF to_delete
